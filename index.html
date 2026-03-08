@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Women's Day 💌</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Caveat:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="browser-shell">
+
+
+
+    <!-- ── Full-height content ── -->
+    <div class="browser-content">
+      <div class="bg-fabric"></div>
+      <div class="floating-hearts" id="floatingHearts"></div>
+
+      <!-- ══ SCREEN 0 — Loading ══ -->
+      <div class="screen active" id="screen-0">
+        <span class="flower-corner flower-tl">🌸</span>
+        <span class="flower-corner flower-tr">🌸</span>
+        <span class="flower-corner flower-bl">🌸</span>
+        <span class="flower-corner flower-br">🌸</span>
+
+        <div class="torn-card">
+          <div class="cat-wrap" style="animation:pulse 1.2s ease-in-out infinite;">
+            <img src="https://cataas.com/cat?width=200&height=200" alt="loading cat"
+              onerror="this.src='https://placekitten.com/200/200'">
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div style="font-family:'Caveat',cursive;font-size:clamp(13px,1.8vw,18px);color:#9a7080;">
+            loading something special…
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN 1 — "Will you see it?" ══ -->
+      <div class="screen" id="screen-1">
+        <span class="flower-corner flower-tl">🌸</span>
+        <span class="flower-corner flower-tr">🌸</span>
+        <span class="flower-corner flower-bl">🌸</span>
+        <span class="flower-corner flower-br">🌸</span>
+
+        <div style="position:relative;">
+          <span class="bow-ribbon">🎀</span>
+          <div class="torn-card">
+            <div class="cat-wrap">
+              <img src="https://cataas.com/cat/cute?width=200&height=200" alt="cute cat"
+                onerror="this.src='https://placekitten.com/g/200/200'">
+              <span class="cat-bow-overlay">🎀</span>
+            </div>
+            <div class="card-text">hey! i made something for you<br>Will you see it?</div>
+            <div class="btn-row">
+              <button class="btn" onclick="goToScreen('screen-yes')">yes</button>
+              <button class="btn" id="no-btn" onclick="handleNo()">no</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN: NO — angry cat ══ -->
+      <div class="screen" id="screen-no">
+        <span class="flower-corner flower-tl">🌸</span>
+        <span class="flower-corner flower-bl">🌸</span>
+        <span class="flower-corner flower-br">🌸</span>
+
+        <div style="position:relative;">
+          <div class="torn-card">
+            <div class="cat-wrap" style="border-color:#e09090;">
+              <img src="https://cataas.com/cat/grumpy?width=200&height=200" alt="grumpy cat"
+                onerror="this.src='https://placekitten.com/200/201'">
+              <span class="cat-bow-overlay">🎀</span>
+            </div>
+            <div style="position:absolute;top:calc(48% - 20px);right:clamp(10px,7%,32px);
+                      font-size:clamp(22px,3.5vw,38px);transform:rotate(-10deg);">🔫</div>
+            <div class="card-text" style="font-size:clamp(16px,2.5vw,24px);font-weight:700;
+               color:#8b1a1a;font-family:'Dancing Script',cursive;
+               text-transform:uppercase;letter-spacing:1.5px;margin-top:8px;">
+              HOW DARE YOUUUU
+            </div>
+            <div class="btn-row">
+              <button class="btn" onclick="resetAndGoBack()"
+                style="text-transform:uppercase;letter-spacing:2px;font-size:clamp(12px,1.5vw,16px);">
+                BACK
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN: YES — party cat ══ -->
+      <div class="screen" id="screen-yes">
+        <span class="flower-corner flower-tl">🌸</span>
+        <span class="flower-corner flower-tr">🌸</span>
+        <span class="flower-corner flower-bl">🌸</span>
+
+        <div style="position:relative;">
+          <span class="bow-ribbon">🎀</span>
+          <div class="torn-card" onclick="goToScreen('screen-msg')" style="cursor:pointer;">
+            <div style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+                      font-size:clamp(20px,3vw,32px);">🎉</div>
+            <div class="cat-wrap" style="border-color:#f0a0c0;">
+              <img src="https://cataas.com/cat?width=200&height=200&tag=cute" alt="happy cat"
+                onerror="this.src='https://placekitten.com/201/200'">
+              <span class="cat-bow-overlay">🎀</span>
+            </div>
+            <div style="font-size:clamp(22px,3.2vw,34px);margin-bottom:6px;">🎂 💐</div>
+            <div class="card-text" style="color:#c05878;font-weight:600;">
+              Happy Women's Day my shruthika!!!
+            </div>
+            <div class="click-hint">click~</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN: MESSAGE REVEAL ══ -->
+      <div class="screen" id="screen-msg" onclick="goToScreen('screen-gift')">
+        <div style="display:flex;align-items:center;justify-content:center;
+                  gap:clamp(14px,2.5vw,34px);flex-wrap:wrap;padding:22px;width:100%;height:100%;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <span class="cake-emoji-big">🎂</span>
+            <div style="font-family:'Dancing Script',cursive;font-size:clamp(12px,1.6vw,19px);
+                      color:#c8d8f8;background:rgba(255,255,255,.1);border-radius:8px;
+                      padding:3px 12px;display:inline-block;">
+              Happy Women's Day
+            </div>
+          </div>
+          <div style="position:relative;flex-shrink:0;">
+            <div class="message-card">
+              <span class="msg-bow">🎀</span>
+              <h3>Happy Women's Day.</h3>
+              <p>Today is a reminder of the quiet strength, kindness, and courage you carry every single day.
+                The way you care, support, and inspire others never goes unnoticed.
+                May life give back the same warmth and love you bring into the world.
+                You truly make everything around you brighter. 🌸</p>
+            </div>
+            <span style="position:absolute;bottom:-22px;right:14px;font-size:clamp(20px,3vw,30px);">✉️</span>
+            <span style="position:absolute;bottom:-12px;right:52px;font-size:clamp(16px,2vw,24px);">🌸</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN: GIFT BOX ══ -->
+      <div class="screen" id="screen-gift">
+        <span class="flower-corner flower-tl">🌸</span>
+        <span class="flower-corner flower-tr">🌸</span>
+        <span class="flower-corner flower-bl">🌸</span>
+        <span class="flower-corner flower-br">🌸</span>
+
+        <div style="position:relative;">
+          <span class="bow-ribbon" style="top:-10px;right:-14px;">🎀</span>
+          <div class="torn-card" onclick="goToScreen('screen-photos')" style="cursor:pointer;
+             width:clamp(200px,30vw,330px);padding:clamp(24px,4vh,48px) clamp(20px,3vw,38px);">
+            <div style="position:relative;display:inline-block;">
+              <span class="gift-emoji">🎁</span>
+              <div class="tap-me-label">Tap me</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN: PHOTOS ══ -->
+      <div class="screen" id="screen-photos" onclick="goToScreen('screen-final')">
+        <div class="polaroid">
+          <span class="polaroid-deco bow">🎀</span>
+          <div class="polaroid-inner">
+            <img src="../img/image_1.jpg" alt="Shruthika">
+          </div>
+        </div>
+        <div class="polaroid">
+          <span class="polaroid-deco flower">🌸</span>
+          <div class="polaroid-inner">
+            <img src="https://cataas.com/cat?width=300&height=240" alt="cat polaroid 2"
+              onerror="this.src='https://placekitten.com/301/240'">
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SCREEN: FINAL ══ -->
+      <div class="screen" id="screen-final">
+        <div class="confetti-container" id="confettiContainer"></div>
+        <div
+          style="width:clamp(80px,12vw,130px);height:clamp(80px,12vw,130px);border-radius:50%;overflow:hidden;border:4px solid rgba(255,200,220,0.8);box-shadow:0 0 30px rgba(255,130,170,0.6);flex-shrink:0;">
+          <img src="../img/image_2.jpg" alt="Shruthika"
+            style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        </div>
+        <span class="final-heart">💖</span>
+        <div class="final-title">Happy Women's Day!</div>
+        <div class="final-sub">Shruthika, you are celebrated and appreciated every single day 🌸</div>
+        <div style="margin-top:8px;display:flex;gap:16px;font-size:clamp(28px,4.5vw,54px);">
+          🌸 💐 🎀 🌸
+        </div>
+      </div>
+
+    </div><!-- end browser-content -->
+  </div><!-- end browser-shell -->
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
